@@ -62,7 +62,7 @@ namespace GaussianSplatting.Runtime
         {
             m_Pass = new GSRenderPass
             {
-                renderPassEvent = RenderPassEvent.BeforeRenderingTransparents
+                renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing
             };
         }
 
