@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-#if GS_ENABLE_URP
+//#if GS_ENABLE_URP
 
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
@@ -15,6 +15,8 @@ namespace GaussianSplatting.Runtime
     // ReSharper disable once InconsistentNaming
     class GaussianSplatURPFeature : ScriptableRendererFeature
     {
+        [SerializeField]
+        public RenderPassEvent m_RenderPassEvent;
         class GSRenderPass : ScriptableRenderPass
         {
             RTHandle m_RenderTarget;
@@ -62,7 +64,7 @@ namespace GaussianSplatting.Runtime
         {
             m_Pass = new GSRenderPass
             {
-                renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing
+                renderPassEvent = m_RenderPassEvent
             };
         }
 
@@ -94,4 +96,4 @@ namespace GaussianSplatting.Runtime
     }
 }
 
-#endif // #if GS_ENABLE_URP
+//#endif // #if GS_ENABLE_URP
